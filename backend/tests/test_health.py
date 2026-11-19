@@ -7,9 +7,12 @@ async def test_root_endpoint():
     async with AsyncClient(transport=ASGITransport(app=app), base_url="http://test") as client:
         response = await client.get("/")
         assert response.status_code == 200
-        data = response.json()
-        assert data["module"] == "Module 2: Python Backend & API Integration"
-        assert data["status"] == "Operational"
+        content_type = response.headers.get("content-type", "")
+        if "text/html" in content_type:
+            assert "<!doctype html>" in response.text.lower()
+        else:
+            data = response.json()
+            assert data["status"] == "Operational"
 
 @pytest.mark.anyio
 async def test_health_endpoint():

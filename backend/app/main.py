@@ -70,12 +70,39 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 # Include API Router
 app.include_router(api_router)
 
-@app.get("/", tags=["Root"])
-def root_info():
-    return {
-        "project": settings.PROJECT_NAME,
-        "module": "Module 2: Python Backend & API Integration",
-        "status": "Operational",
-        "documentation": "/docs",
-        "openapi": "/openapi.json",
-    }
+# Locate and serve built frontend SPA if dist/ exists
+import os
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+
+dist_candidates = [
+    os.path.join(os.getcwd(), "dist"),
+    os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "dist")),
+]
+DIST_DIR = None
+for candidate in dist_candidates:
+    if os.path.exists(candidate) and os.path.isdir(candidate):
+        DIST_DIR = candidate
+        break
+
+if DIST_DIR and os.path.exists(os.path.join(DIST_DIR, "index.html")):
+    assets_dir = os.path.join(DIST_DIR, "assets")
+    if os.path.exists(assets_dir):
+        app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
+
+    @app.get("/{full_path:path}", tags=["Frontend"])
+    async def serve_frontend(full_path: str):
+        file_path = os.path.join(DIST_DIR, full_path)
+        if full_path and os.path.isfile(file_path):
+            return FileResponse(file_path)
+        return FileResponse(os.path.join(DIST_DIR, "index.html"))
+else:
+    @app.get("/", tags=["Root"])
+    def root_info():
+        return {
+            "project": settings.PROJECT_NAME,
+            "module": "Module 2: Python Backend & API Integration",
+            "status": "Operational",
+            "documentation": "/docs",
+            "openapi": "/openapi.json",
+        }
