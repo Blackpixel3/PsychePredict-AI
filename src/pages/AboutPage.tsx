@@ -1,111 +1,93 @@
 import React from 'react';
-import {
-  Brain,
-  Layers,
-  ShieldAlert,
-  Code2,
-  Database,
-  Cpu,
-  FileSpreadsheet,
-  CheckCircle2,
-  AlertTriangle,
-  GraduationCap,
-} from 'lucide-react';
 import { Card } from '../components/common/Card';
 
 export const AboutPage: React.FC = () => {
   const objectives = [
     {
       title: 'Multimodal Psychometric Integration',
-      desc: 'Synthesize standard psychiatric scales (DASS-21, PHQ-9, GAD-7) with patient demographic and lifestyle markers to build an expressive multi-feature representation.',
+      desc: 'Synthesizes standardized psychiatric scales (DASS-21, PHQ-9, GAD-7) with demographic and lifestyle markers to construct an expressive multidimensional feature representation.',
     },
     {
       title: 'Multi-Class Disorder Stratification',
-      desc: 'Move beyond binary classifications to predict nuanced severity classes (Normal, Mild, Moderate, Severe, Extremely Severe) across Depression, Anxiety, and Stress.',
+      desc: 'Moves beyond binary classification to predict granular clinical severity tiers (Normal, Mild, Moderate, Severe, Extremely Severe) across Depression, Anxiety, and Stress.',
     },
     {
       title: 'Objective Clinical Decision Support',
-      desc: 'Provide quantified screening probabilities to triage patient pipelines, identify high-risk individuals early, and assist mental health clinicians with calibrated metrics.',
+      desc: 'Provides calibrated probability distributions to assist mental health clinicians with quantitative triage metrics rather than subjective score cutoffs alone.',
     },
     {
-      title: 'Modern Healthcare Software Architecture',
-      desc: 'Build a modular, secure, accessible web client (Module 1) ready for integration with deep learning inference backends (Module 2) and clinical deployment.',
+      title: 'Production-Grade Healthcare Software Architecture',
+      desc: 'Implements a modular, accessible React frontend coupled with an asynchronous FastAPI inference service and SQLite database.',
     },
   ];
 
   const methodologySteps = [
     {
-      step: 'Phase 1',
-      title: 'Data Collection & Normalization',
-      desc: 'Standardized questionnaire batteries (DASS-21, PHQ-9, GAD-7) along with demographic attributes (age, sex, sleep hours, physical activity, work stress). Continuous and ordinal inputs are normalized and one-hot encoded.',
-      icon: FileSpreadsheet,
+      step: '01',
+      title: 'Standardized Psychometric Intake',
+      desc: 'Patient responses are collected across DASS-21, PHQ-9, and GAD-7 alongside validated demographic and lifestyle covariates (sleep duration, activity, workplace stress).',
     },
     {
-      step: 'Phase 2',
-      title: 'Feature Engineering & Latent Encoding',
-      desc: 'Extraction of covariance structures between affective symptoms. Deep autoencoders or multi-layer dense projections map cross-disorder co-morbidities between depression and anxiety.',
-      icon: Layers,
+      step: '02',
+      title: 'Feature Normalization & Preprocessing',
+      desc: 'Ordinal scale responses are normalized, categorical demographics are one-hot encoded, and continuous metrics undergo zero-mean unit-variance scaling.',
     },
     {
-      step: 'Phase 3',
-      title: 'Deep Multi-Class Neural Network',
-      desc: 'A multi-head feedforward neural architecture with residual skip connections, batch normalization, and dropout regularization. Multi-class Softmax heads independently predict severity for each disorder.',
-      icon: Cpu,
+      step: '03',
+      title: 'Multi-Task Deep Neural Representation',
+      desc: 'Feedforward neural architectures with residual connections model non-linear co-occurrences between depression, anxiety, and stress symptoms simultaneously.',
     },
     {
-      step: 'Phase 4',
-      title: 'Calibration & Stratified Output',
-      desc: 'Temperature scaling and Platt calibration ensure that output probabilities accurately reflect empirical confidence. Outputs are formatted for clinician triage and patient feedback.',
-      icon: Brain,
+      step: '04',
+      title: 'Calibrated Severity Stratification',
+      desc: 'Softmax probability distributions are mapped into validated clinical severity bands to support screening workflows and audit compliance.',
     },
   ];
 
   const techStack = [
     {
-      category: 'Frontend Client (Module 1 — Current)',
+      category: 'Frontend Client Architecture',
       items: [
-        { name: 'React 19 + TypeScript', role: 'Component architecture and type-safe state modeling' },
-        { name: 'Vite 8', role: 'Next-generation fast bundler and dev server' },
-        { name: 'Tailwind CSS', role: 'Modern, responsive healthcare UI design system' },
-        { name: 'Recharts', role: 'Multi-class probability distribution visualization' },
-        { name: 'Lucide React', role: 'Clean, accessible medical and interface iconography' },
+        { name: 'React 19 & TypeScript', role: 'Type-safe component hierarchy and state management' },
+        { name: 'Tailwind CSS', role: 'Restrained, clinical design system with custom typography' },
+        { name: 'Vite', role: 'Optimized bundler and rapid hot-module development runtime' },
+        { name: 'Recharts', role: 'Accessible probability distribution charts' },
       ],
-      icon: Code2,
     },
     {
-      category: 'Planned Backend & Model Engine (Future Module 2 & 3)',
+      category: 'Backend & Service Layer',
       items: [
-        { name: 'Python & FastAPI', role: 'High-performance asynchronous inference REST API' },
-        { name: 'PyTorch / TensorFlow', role: 'Deep learning multi-class neural network classifier' },
-        { name: 'Scikit-Learn & Pandas', role: 'Data preprocessing, imputation, and validation metrics' },
-        { name: 'PostgreSQL / SQLite', role: 'Secure, anonymized longitudinal assessment audit storage' },
+        { name: 'Python & FastAPI', role: 'Asynchronous REST API with Pydantic schema validation' },
+        { name: 'SQLite & Python Standard Library', role: 'Persistent assessment record storage' },
+        { name: 'Uvicorn', role: 'ASGI production server' },
+        { name: 'Pytest', role: 'Automated test suite verifying submission and endpoints' },
       ],
-      icon: Database,
     },
   ];
 
   return (
-    <div className="space-y-12 py-6 max-w-5xl mx-auto">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-navy-950 via-navy-900 to-navy-950 rounded-3xl p-8 sm:p-12 text-white shadow-elevated border border-navy-800 space-y-4">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/15 border border-teal-500/30 text-teal-300 text-xs font-semibold">
-          <GraduationCap className="w-4 h-4 text-teal-400" />
-          <span>Master of Computer Applications (MCA) Project</span>
+    <div className="space-y-10 py-6 max-w-4xl mx-auto">
+      {/* Editorial Header */}
+      <div className="bg-white border border-charcoal-200 rounded-lg p-6 sm:p-8 space-y-3 shadow-subtle">
+        <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-zinc-100 text-charcoal-700 text-xs font-mono">
+          <span>Academic Research Documentation</span>
         </div>
-        <h1 className="text-2xl sm:text-4xl font-extrabold tracking-tight">
+        <h1 className="text-xl sm:text-2xl font-semibold text-charcoal-900 tracking-tight leading-snug">
           Deep Learning Based Multi-Class Prediction of Psychological Disorders Using Patient Assessment Data
         </h1>
-        <p className="text-xs sm:text-sm text-slate-300 max-w-3xl leading-relaxed">
-          Comprehensive project documentation, clinical methodology, algorithmic pipeline specifications, and formal limitations for the psychological disorder prediction platform.
+        <p className="text-xs sm:text-sm text-charcoal-600 leading-relaxed max-w-3xl">
+          Technical overview, methodology, algorithmic architecture, and clinical boundaries for the MCA research project on multi-class psychological disorder screening.
         </p>
       </div>
 
       {/* Project Objectives */}
       <section className="space-y-4">
-        <div className="border-b border-slate-200 pb-2">
-          <h2 className="text-lg font-bold text-navy-900">Project Objectives</h2>
-          <p className="text-xs text-slate-500">
-            Core research aims guiding the computational modeling and clinical utility.
+        <div className="border-b border-charcoal-200 pb-2">
+          <h2 className="text-sm font-semibold text-charcoal-900 uppercase tracking-wider">
+            Project Objectives
+          </h2>
+          <p className="text-xs text-charcoal-500 mt-0.5">
+            Core research goals guiding computational architecture and clinical screening.
           </p>
         </div>
 
@@ -113,15 +95,15 @@ export const AboutPage: React.FC = () => {
           {objectives.map((obj, i) => (
             <div
               key={i}
-              className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs space-y-2 hover:border-slate-300 transition-colors"
+              className="bg-white p-4 rounded-lg border border-charcoal-200 space-y-1.5 shadow-subtle"
             >
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 rounded-md bg-teal-50 text-teal-700 flex items-center justify-center font-bold text-xs">
-                  {i + 1}
-                </div>
-                <h3 className="text-sm font-bold text-navy-900">{obj.title}</h3>
+                <span className="font-mono text-xs font-semibold text-charcoal-400">
+                  0{i + 1}
+                </span>
+                <h3 className="text-xs font-semibold text-charcoal-900">{obj.title}</h3>
               </div>
-              <p className="text-xs text-slate-600 leading-relaxed pl-8">
+              <p className="text-xs text-charcoal-600 leading-relaxed pl-5">
                 {obj.desc}
               </p>
             </div>
@@ -131,147 +113,120 @@ export const AboutPage: React.FC = () => {
 
       {/* Project Methodology Pipeline */}
       <section className="space-y-4">
-        <div className="border-b border-slate-200 pb-2">
-          <h2 className="text-lg font-bold text-navy-900">Methodology & Deep Learning Pipeline</h2>
-          <p className="text-xs text-slate-500">
-            End-to-end algorithmic flow from patient psychometric intake to calibrated multi-class severity prediction.
+        <div className="border-b border-charcoal-200 pb-2">
+          <h2 className="text-sm font-semibold text-charcoal-900 uppercase tracking-wider">
+            Methodology & Pipeline
+          </h2>
+          <p className="text-xs text-charcoal-500 mt-0.5">
+            Four-stage data processing workflow from intake to multi-class estimation.
           </p>
         </div>
 
-        {/* Visual Pipeline Flow */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          {methodologySteps.map((m, idx) => {
-            const Icon = m.icon;
-            return (
-              <div
-                key={idx}
-                className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between space-y-3 relative"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[11px] font-black text-teal-600 uppercase tracking-wider">
-                      {m.step}
-                    </span>
-                    <div className="w-7 h-7 rounded-lg bg-navy-50 text-navy-900 flex items-center justify-center">
-                      <Icon className="w-4 h-4 text-teal-600" />
-                    </div>
-                  </div>
-                  <h3 className="text-xs font-bold text-navy-900 mb-1">{m.title}</h3>
-                  <p className="text-[11px] text-slate-600 leading-relaxed">{m.desc}</p>
-                </div>
-                {idx < 3 && (
-                  <div className="hidden md:block absolute -right-2 top-1/2 -translate-y-1/2 z-10 w-4 h-4 text-slate-300">
-                    →
-                  </div>
-                )}
-              </div>
-            );
-          })}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+          {methodologySteps.map((m) => (
+            <div
+              key={m.step}
+              className="bg-white p-4 rounded-lg border border-charcoal-200 space-y-2 shadow-subtle"
+            >
+              <span className="text-xs font-mono font-semibold text-sage-800">
+                Phase {m.step}
+              </span>
+              <h3 className="text-xs font-semibold text-charcoal-900">{m.title}</h3>
+              <p className="text-[11px] text-charcoal-600 leading-relaxed">{m.desc}</p>
+            </div>
+          ))}
         </div>
 
-        <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs text-slate-600 leading-relaxed">
-          <span className="font-semibold text-navy-900">Scientific Foundation:</span> The psychometric batteries integrated into this system (PHQ-9, GAD-7, DASS-21) possess decades of empirical validation in clinical psychology with established internal consistency (Cronbach's alpha &gt; 0.88). Deep neural models enable capturing nonlinear symptom interaction patterns that simple additive cutoff tables frequently overlook.
+        <div className="bg-zinc-50 p-3.5 rounded border border-charcoal-200 text-xs text-charcoal-600 leading-relaxed">
+          <strong className="text-charcoal-900">Psychometric Integrity: </strong>
+          The instruments integrated into this platform (PHQ-9, GAD-7, DASS-21) are internationally established psychological batteries with demonstrated internal consistency (Cronbach’s α &gt; 0.85). Deep representations help capture comorbid symptom presentations that simple linear sum thresholds may obscure.
         </div>
       </section>
 
       {/* Technology Overview */}
       <section className="space-y-4">
-        <div className="border-b border-slate-200 pb-2">
-          <h2 className="text-lg font-bold text-navy-900">Technology Overview</h2>
-          <p className="text-xs text-slate-500">
-            Current frontend implementation and future architectural roadmap.
+        <div className="border-b border-charcoal-200 pb-2">
+          <h2 className="text-sm font-semibold text-charcoal-900 uppercase tracking-wider">
+            Technology Stack
+          </h2>
+          <p className="text-xs text-charcoal-500 mt-0.5">
+            Architecture and tooling implemented across the client and service layers.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {techStack.map((tech, i) => {
-            const Icon = tech.icon;
-            return (
-              <Card
-                key={i}
-                title={tech.category}
-                action={
-                  <div className="w-8 h-8 rounded-lg bg-navy-50 text-navy-900 flex items-center justify-center">
-                    <Icon className="w-4 h-4 text-teal-600" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {techStack.map((tech, i) => (
+            <Card key={i} title={tech.category}>
+              <div className="space-y-2">
+                {tech.items.map((it, idx) => (
+                  <div
+                    key={idx}
+                    className="p-2.5 bg-zinc-50 rounded border border-charcoal-200 text-xs"
+                  >
+                    <span className="font-semibold text-charcoal-900">{it.name}: </span>
+                    <span className="text-charcoal-600">{it.role}</span>
                   </div>
-                }
-              >
-                <div className="space-y-3">
-                  {tech.items.map((it, idx) => (
-                    <div
-                      key={idx}
-                      className="p-3 bg-slate-50 rounded-lg border border-slate-100 flex items-start gap-2.5"
-                    >
-                      <CheckCircle2 className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
-                      <div className="text-xs">
-                        <span className="font-bold text-navy-900">{it.name}: </span>
-                        <span className="text-slate-600">{it.role}</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </Card>
-            );
-          })}
+                ))}
+              </div>
+            </Card>
+          ))}
         </div>
       </section>
 
       {/* Limitations and Medical Disclaimer */}
-      <section id="disclaimer" className="space-y-4">
-        <div className="border-b border-slate-200 pb-2">
-          <h2 className="text-lg font-bold text-rose-900 flex items-center gap-2">
-            <ShieldAlert className="w-5 h-5 text-rose-600" />
+      <section id="disclaimer" className="space-y-3">
+        <div className="border-b border-charcoal-200 pb-2">
+          <h2 className="text-sm font-semibold text-charcoal-900 uppercase tracking-wider">
             Limitations & Medical Disclaimer
           </h2>
-          <p className="text-xs text-slate-500">
+          <p className="text-xs text-charcoal-500 mt-0.5">
             Ethical constraints, computational boundaries, and legal health notices.
           </p>
         </div>
 
-        <div className="bg-rose-50/50 border border-rose-200 rounded-2xl p-6 space-y-4 text-xs text-slate-700 leading-relaxed">
-          <div className="flex items-start gap-3">
-            <AlertTriangle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
-            <div className="space-y-2">
-              <h3 className="font-bold text-rose-950 text-sm">
-                Non-Diagnostic Clinical Research Tool
-              </h3>
-              <p>
-                1. <strong>Preliminary Screening Only:</strong> The predictions, class probabilities, and risk classifications produced by this software are intended exclusively for academic research, preliminary screening, and clinical decision support. They do not constitute, nor are they a substitute for, a formal psychiatric diagnosis, psychiatric evaluation, or therapeutic plan.
-              </p>
-              <p>
-                2. <strong>Subjective Reporting Bias:</strong> All psychometric scales rely on self-reported inputs. Factors such as transient stress, misunderstanding questions, social desirability bias, or language differences may affect calculated results.
-              </p>
-              <p>
-                3. <strong>Deep Learning Model Boundaries:</strong> While neural networks can detect intricate correlation patterns, they can also exhibit algorithmic biases based on training distribution representations. Output probabilities must always be corroborated by licensed clinical psychologists.
-              </p>
-              <p>
-                4. <strong>Emergency Protocol:</strong> If a user expresses suicidal ideation (e.g., PHQ-9 Item 9 positive rating) or is experiencing severe psychiatric crisis, this application must not be relied upon. The individual should seek immediate emergency medical care or reach out to authorized crisis suicide prevention helplines.
-              </p>
-            </div>
+        <div className="bg-zinc-50 border border-charcoal-200 rounded-lg p-5 space-y-3 text-xs text-charcoal-700 leading-relaxed">
+          <div>
+            <h3 className="font-semibold text-charcoal-900 mb-1">
+              1. Non-Diagnostic Research Screening Instrument
+            </h3>
+            <p className="text-charcoal-600">
+              The classifications, severity tiers, and probability values produced by this platform are preliminary screening estimates developed for academic research purposes. They do not constitute, and cannot replace, a formal psychiatric diagnosis or psychological clinical evaluation.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-charcoal-900 mb-1">
+              2. Self-Reporting Variability
+            </h3>
+            <p className="text-charcoal-600">
+              Questionnaire responses depend on self-reported perception, which may be influenced by acute transient stressors, subjective interpretative differences, or recall variance.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-charcoal-900 mb-1">
+              3. Emergency Protocols
+            </h3>
+            <p className="text-charcoal-600">
+              If an individual is experiencing acute crisis, severe distress, or self-harm ideation, immediate emergency medical attention or certified crisis helplines must be utilized (e.g., National Helpline Tele-MANAS: 14416).
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Academic Attribution Footer Card */}
-      <div className="bg-white rounded-xl border border-slate-200 p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-navy-900 text-white flex items-center justify-center font-bold text-sm">
-            MCA
-          </div>
-          <div>
-            <p className="font-bold text-navy-900 text-sm">
-              Master of Computer Applications Project
-            </p>
-            <p className="text-[11px] text-slate-500">
-              Department of Computer Applications • Module 1 (Frontend Implementation)
-            </p>
-          </div>
+      {/* Academic Attribution Footer */}
+      <div className="bg-white rounded-lg border border-charcoal-200 p-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-charcoal-500">
+        <div>
+          <p className="font-semibold text-charcoal-900">
+            Master of Computer Applications (MCA) Project
+          </p>
+          <p className="text-[11px] text-charcoal-500">
+            Department of Computer Applications • Academic Year 2025–2026
+          </p>
         </div>
-        <div className="text-center sm:text-right">
-          <span className="inline-block px-3 py-1 bg-teal-50 text-teal-800 font-semibold rounded-full border border-teal-200">
-            Frontend Architecture Approved
-          </span>
-        </div>
+        <span className="font-mono text-[10px] text-charcoal-600 bg-zinc-100 px-2.5 py-1 rounded">
+          Modules 1 & 2 Integrated
+        </span>
       </div>
     </div>
   );

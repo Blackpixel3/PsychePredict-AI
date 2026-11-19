@@ -2,34 +2,34 @@ import type { AssessmentResult, RecentAssessmentItem, SeverityLevel, DisorderPre
 
 export const SEVERITY_COLORS: Record<SeverityLevel, { bg: string; text: string; border: string; bar: string }> = {
   'Normal': {
-    bg: 'bg-emerald-50',
-    text: 'text-emerald-700',
+    bg: 'bg-emerald-50/70',
+    text: 'text-emerald-800',
     border: 'border-emerald-200',
-    bar: '#10b981',
+    bar: '#2e6153',
   },
   'Mild': {
-    bg: 'bg-blue-50',
-    text: 'text-blue-700',
-    border: 'border-blue-200',
-    bar: '#3b82f6',
+    bg: 'bg-slate-100',
+    text: 'text-slate-800',
+    border: 'border-slate-200',
+    bar: '#64748b',
   },
   'Moderate': {
     bg: 'bg-amber-50',
-    text: 'text-amber-700',
+    text: 'text-amber-850',
     border: 'border-amber-200',
-    bar: '#f59e0b',
+    bar: '#b45309',
   },
   'Severe': {
     bg: 'bg-orange-50',
-    text: 'text-orange-700',
+    text: 'text-orange-900',
     border: 'border-orange-200',
-    bar: '#f97316',
+    bar: '#c2410c',
   },
   'Extremely Severe': {
     bg: 'bg-rose-50',
-    text: 'text-rose-700',
+    text: 'text-rose-900',
     border: 'border-rose-200',
-    bar: '#ef4444',
+    bar: '#9f1239',
   },
 };
 

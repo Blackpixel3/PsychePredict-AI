@@ -1,60 +1,56 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldAlert, Activity, HeartHandshake } from 'lucide-react';
+import { Activity } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-navy-950 text-slate-300 border-t border-navy-900 mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+    <footer className="bg-white text-charcoal-600 border-t border-charcoal-200 mt-auto">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-charcoal-200">
           {/* Col 1: Branding & MCA Project */}
-          <div className="md:col-span-2 space-y-3">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-teal-500/20 text-teal-400 flex items-center justify-center border border-teal-500/30">
-                <Activity className="w-4 h-4" />
+          <div className="md:col-span-2 space-y-2">
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 rounded bg-sage-800 text-white flex items-center justify-center">
+                <Activity className="w-3 h-3 text-emerald-200" />
               </div>
-              <span className="text-white font-bold tracking-tight text-base">
-                PsychePredict AI
+              <span className="font-semibold text-charcoal-900 text-sm tracking-tight">
+                PsychePredict
               </span>
             </div>
-            <p className="text-xs text-slate-400 max-w-md leading-relaxed">
-              MCA Project: <strong>Deep Learning Based Multi-Class Prediction of Psychological Disorders Using Patient Assessment Data</strong>. Designed for early detection and multimodal risk stratification across Depression, Anxiety, and Stress.
+            <p className="text-xs text-charcoal-500 max-w-md leading-relaxed">
+              Master of Computer Applications (MCA) Project: <em>Deep Learning Based Multi-Class Prediction of Psychological Disorders Using Patient Assessment Data</em>. Standardized preliminary screening using DASS-21, PHQ-9, and GAD-7.
             </p>
-            <div className="flex items-center gap-2 text-[11px] text-teal-400/90 pt-1">
-              <HeartHandshake className="w-3.5 h-3.5" />
-              <span>Standardized Instruments: DASS-21 • PHQ-9 • GAD-7</span>
-            </div>
           </div>
 
           {/* Col 2: Navigation */}
           <div>
-            <h4 className="text-xs font-semibold text-white uppercase tracking-wider mb-3">
-              Screening Modules
+            <h4 className="text-xs font-semibold text-charcoal-900 uppercase tracking-wider mb-2.5">
+              Sections
             </h4>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-1.5 text-xs">
               <li>
-                <Link to="/" className="text-slate-400 hover:text-white transition-colors">
-                  Overview & Landing
+                <Link to="/" className="text-charcoal-600 hover:text-charcoal-900 transition-colors">
+                  Overview
                 </Link>
               </li>
               <li>
-                <Link to="/dashboard" className="text-slate-400 hover:text-white transition-colors">
-                  Screening Dashboard
+                <Link to="/dashboard" className="text-charcoal-600 hover:text-charcoal-900 transition-colors">
+                  Dashboard
                 </Link>
               </li>
               <li>
-                <Link to="/assessment" className="text-slate-400 hover:text-white transition-colors">
-                  Full Assessment Form
+                <Link to="/assessment" className="text-charcoal-600 hover:text-charcoal-900 transition-colors">
+                  Assessment Intake
                 </Link>
               </li>
               <li>
-                <Link to="/results" className="text-slate-400 hover:text-white transition-colors">
-                  Results & Risk Profiles
+                <Link to="/results" className="text-charcoal-600 hover:text-charcoal-900 transition-colors">
+                  Screening Results
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-slate-400 hover:text-white transition-colors">
-                  Project Methodology
+                <Link to="/about" className="text-charcoal-600 hover:text-charcoal-900 transition-colors">
+                  Methodology & Ethics
                 </Link>
               </li>
             </ul>
@@ -62,26 +58,23 @@ export const Footer: React.FC = () => {
 
           {/* Col 3: Medical Notice */}
           <div>
-            <h4 className="text-xs font-semibold text-amber-400 uppercase tracking-wider mb-3 flex items-center gap-1.5">
-              <ShieldAlert className="w-3.5 h-3.5" />
-              Disclaimer Notice
+            <h4 className="text-xs font-semibold text-charcoal-900 uppercase tracking-wider mb-2.5">
+              Clinical Disclaimer
             </h4>
-            <p className="text-[11px] text-slate-400 leading-relaxed">
-              This system provides research-oriented screening estimates based on self-reported psychometric questionnaires. It does not provide medical diagnoses or replace licensed clinical intervention.
+            <p className="text-[11px] text-charcoal-500 leading-relaxed">
+              This system calculates research screening indicators and is not a substitute for clinical psychological evaluation or medical diagnosis.
             </p>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-6 border-t border-navy-900 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+        <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-charcoal-400">
           <p>
-            © {new Date().getFullYear()} PsychePredict AI — Master of Computer Applications (MCA) Project.
+            MCA Research Project • Department of Computer Applications
           </p>
-          <div className="flex items-center gap-4 text-slate-400">
-            <span>Module 1: Frontend Client</span>
-            <span>•</span>
-            <span>React + TypeScript + Tailwind</span>
-          </div>
+          <p>
+            React • TypeScript • FastAPI • Standardized Psychometrics
+          </p>
         </div>
       </div>
     </footer>

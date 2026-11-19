@@ -1,6 +1,5 @@
 import React from 'react';
 import type { PatientDemographics } from '../../types';
-import { User, Briefcase, Moon, Activity, Coffee, Flame } from 'lucide-react';
 
 interface DemographicFormProps {
   data: PatientDemographics;
@@ -14,22 +13,21 @@ export const DemographicForm: React.FC<DemographicFormProps> = ({
   errors = {},
 }) => {
   return (
-    <div className="space-y-6">
-      <div className="border-b border-slate-100 pb-4">
-        <h2 className="text-lg font-bold text-navy-900">
-          Step 1: Patient Demographics & Lifestyle Profile
+    <div className="space-y-5">
+      <div className="border-b border-charcoal-200 pb-3">
+        <h2 className="text-base font-semibold text-charcoal-900">
+          Demographic & Lifestyle Profile
         </h2>
-        <p className="text-xs text-slate-500 mt-1">
-          These background parameters are utilized by the multimodal risk stratification pipeline to contextualize psychological screening responses.
+        <p className="text-xs text-charcoal-500 mt-0.5">
+          Standard contextual parameters used to contextualize clinical psychometric indicators.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* Age */}
         <div>
-          <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
-            <User className="w-3.5 h-3.5 text-navy-700" />
-            Age (Years) <span className="text-rose-500">*</span>
+          <label className="block text-xs font-medium text-charcoal-700 mb-1">
+            Age (years) <span className="text-rose-500">*</span>
           </label>
           <input
             type="number"
@@ -40,10 +38,10 @@ export const DemographicForm: React.FC<DemographicFormProps> = ({
             onChange={(e) =>
               onChange({ age: e.target.value === '' ? '' : parseInt(e.target.value, 10) })
             }
-            className={`w-full px-3.5 py-2.5 text-sm bg-white border rounded-lg focus:outline-none focus:ring-2 transition-all ${
+            className={`w-full px-3 py-2 text-xs bg-white border rounded-md focus:outline-none transition-colors ${
               errors.age
-                ? 'border-rose-300 focus:ring-rose-200'
-                : 'border-slate-300 focus:ring-teal-500/20 focus:border-teal-600'
+                ? 'border-rose-400 focus:border-rose-500'
+                : 'border-zinc-300 focus:border-sage-700 focus:ring-1 focus:ring-sage-700'
             }`}
           />
           {errors.age && (
@@ -53,7 +51,7 @@ export const DemographicForm: React.FC<DemographicFormProps> = ({
 
         {/* Gender */}
         <div>
-          <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+          <label className="block text-xs font-medium text-charcoal-700 mb-1">
             Biological Sex / Gender Identity <span className="text-rose-500">*</span>
           </label>
           <select
@@ -63,13 +61,13 @@ export const DemographicForm: React.FC<DemographicFormProps> = ({
                 gender: e.target.value as PatientDemographics['gender'],
               })
             }
-            className={`w-full px-3.5 py-2.5 text-sm bg-white border rounded-lg focus:outline-none focus:ring-2 transition-all ${
+            className={`w-full px-3 py-2 text-xs bg-white border rounded-md focus:outline-none transition-colors ${
               errors.gender
-                ? 'border-rose-300 focus:ring-rose-200'
-                : 'border-slate-300 focus:ring-teal-500/20 focus:border-teal-600'
+                ? 'border-rose-400 focus:border-rose-500'
+                : 'border-zinc-300 focus:border-sage-700 focus:ring-1 focus:ring-sage-700'
             }`}
           >
-            <option value="">Select gender option</option>
+            <option value="">Select option</option>
             <option value="female">Female</option>
             <option value="male">Male</option>
             <option value="non-binary">Non-binary / Diverse</option>
@@ -82,8 +80,7 @@ export const DemographicForm: React.FC<DemographicFormProps> = ({
 
         {/* Occupation */}
         <div>
-          <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
-            <Briefcase className="w-3.5 h-3.5 text-navy-700" />
+          <label className="block text-xs font-medium text-charcoal-700 mb-1">
             Occupation / Primary Role <span className="text-rose-500">*</span>
           </label>
           <input
@@ -91,10 +88,10 @@ export const DemographicForm: React.FC<DemographicFormProps> = ({
             placeholder="e.g. Student, Software Engineer, Healthcare Worker"
             value={data.occupation}
             onChange={(e) => onChange({ occupation: e.target.value })}
-            className={`w-full px-3.5 py-2.5 text-sm bg-white border rounded-lg focus:outline-none focus:ring-2 transition-all ${
+            className={`w-full px-3 py-2 text-xs bg-white border rounded-md focus:outline-none transition-colors ${
               errors.occupation
-                ? 'border-rose-300 focus:ring-rose-200'
-                : 'border-slate-300 focus:ring-teal-500/20 focus:border-teal-600'
+                ? 'border-rose-400 focus:border-rose-500'
+                : 'border-zinc-300 focus:border-sage-700 focus:ring-1 focus:ring-sage-700'
             }`}
           />
           {errors.occupation && (
@@ -104,9 +101,8 @@ export const DemographicForm: React.FC<DemographicFormProps> = ({
 
         {/* Sleep Duration */}
         <div>
-          <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
-            <Moon className="w-3.5 h-3.5 text-navy-700" />
-            Average Sleep (Hours / Night) <span className="text-rose-500">*</span>
+          <label className="block text-xs font-medium text-charcoal-700 mb-1">
+            Average Sleep (hours / night) <span className="text-rose-500">*</span>
           </label>
           <input
             type="number"
@@ -120,10 +116,10 @@ export const DemographicForm: React.FC<DemographicFormProps> = ({
                 sleepHours: e.target.value === '' ? '' : parseFloat(e.target.value),
               })
             }
-            className={`w-full px-3.5 py-2.5 text-sm bg-white border rounded-lg focus:outline-none focus:ring-2 transition-all ${
+            className={`w-full px-3 py-2 text-xs bg-white border rounded-md focus:outline-none transition-colors ${
               errors.sleepHours
-                ? 'border-rose-300 focus:ring-rose-200'
-                : 'border-slate-300 focus:ring-teal-500/20 focus:border-teal-600'
+                ? 'border-rose-400 focus:border-rose-500'
+                : 'border-zinc-300 focus:border-sage-700 focus:ring-1 focus:ring-sage-700'
             }`}
           />
           {errors.sleepHours && (
@@ -133,9 +129,8 @@ export const DemographicForm: React.FC<DemographicFormProps> = ({
 
         {/* Physical Activity */}
         <div>
-          <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
-            <Activity className="w-3.5 h-3.5 text-teal-600" />
-            Physical Exercise (Days / Week) <span className="text-rose-500">*</span>
+          <label className="block text-xs font-medium text-charcoal-700 mb-1">
+            Physical Exercise (days / week) <span className="text-rose-500">*</span>
           </label>
           <input
             type="number"
@@ -149,10 +144,10 @@ export const DemographicForm: React.FC<DemographicFormProps> = ({
                   e.target.value === '' ? '' : parseInt(e.target.value, 10),
               })
             }
-            className={`w-full px-3.5 py-2.5 text-sm bg-white border rounded-lg focus:outline-none focus:ring-2 transition-all ${
+            className={`w-full px-3 py-2 text-xs bg-white border rounded-md focus:outline-none transition-colors ${
               errors.physicalActivityDays
-                ? 'border-rose-300 focus:ring-rose-200'
-                : 'border-slate-300 focus:ring-teal-500/20 focus:border-teal-600'
+                ? 'border-rose-400 focus:border-rose-500'
+                : 'border-zinc-300 focus:border-sage-700 focus:ring-1 focus:ring-sage-700'
             }`}
           />
           {errors.physicalActivityDays && (
@@ -164,8 +159,7 @@ export const DemographicForm: React.FC<DemographicFormProps> = ({
 
         {/* Caffeine Intake */}
         <div>
-          <label className="block text-xs font-semibold text-slate-700 mb-1.5 flex items-center gap-1.5">
-            <Coffee className="w-3.5 h-3.5 text-amber-700" />
+          <label className="block text-xs font-medium text-charcoal-700 mb-1">
             Caffeine / Stimulant Consumption <span className="text-rose-500">*</span>
           </label>
           <select
@@ -175,10 +169,10 @@ export const DemographicForm: React.FC<DemographicFormProps> = ({
                 caffeineIntake: e.target.value as PatientDemographics['caffeineIntake'],
               })
             }
-            className={`w-full px-3.5 py-2.5 text-sm bg-white border rounded-lg focus:outline-none focus:ring-2 transition-all ${
+            className={`w-full px-3 py-2 text-xs bg-white border rounded-md focus:outline-none transition-colors ${
               errors.caffeineIntake
-                ? 'border-rose-300 focus:ring-rose-200'
-                : 'border-slate-300 focus:ring-teal-500/20 focus:border-teal-600'
+                ? 'border-rose-400 focus:border-rose-500'
+                : 'border-zinc-300 focus:border-sage-700 focus:ring-1 focus:ring-sage-700'
             }`}
           >
             <option value="">Select consumption tier</option>
@@ -195,47 +189,39 @@ export const DemographicForm: React.FC<DemographicFormProps> = ({
 
       {/* Work / Study Stress Rating (1 to 5 scale) */}
       <div className="pt-2">
-        <label className="block text-xs font-semibold text-slate-700 mb-2 flex items-center justify-between">
-          <span className="flex items-center gap-1.5">
-            <Flame className="w-3.5 h-3.5 text-orange-500" />
-            Self-Perceived Work / Academic Stress Rating (1: Minimal — 5: Extreme){' '}
+        <div className="flex items-center justify-between mb-2">
+          <label className="block text-xs font-medium text-charcoal-700">
+            Self-Perceived Work or Academic Stress (1: Minimal — 5: Severe){' '}
             <span className="text-rose-500">*</span>
-          </span>
+          </label>
           {data.workStressLevel && (
-            <span className="text-xs font-bold text-navy-900 bg-slate-100 px-2 py-0.5 rounded">
-              Level {data.workStressLevel} of 5
+            <span className="text-xs font-mono text-charcoal-500">
+              Selected: {data.workStressLevel} / 5
             </span>
           )}
-        </label>
-        <div className="grid grid-cols-5 gap-2.5">
+        </div>
+        <div className="grid grid-cols-5 gap-2">
           {[1, 2, 3, 4, 5].map((lvl) => {
             const isSelected = data.workStressLevel === lvl;
+            const labels = ['Minimal', 'Low', 'Moderate', 'Elevated', 'Severe'];
             return (
               <button
                 key={lvl}
                 type="button"
                 onClick={() => onChange({ workStressLevel: lvl })}
-                className={`py-3 px-2 rounded-xl border text-center transition-all ${
+                className={`py-2.5 px-2 rounded-md border text-center transition-colors ${
                   isSelected
-                    ? 'bg-navy-900 border-navy-900 text-white shadow-xs'
-                    : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50'
+                    ? 'bg-charcoal-900 border-charcoal-900 text-white font-medium'
+                    : 'bg-white border-zinc-200 text-charcoal-700 hover:border-zinc-300 hover:bg-zinc-50'
                 }`}
               >
-                <div className="text-sm font-bold">{lvl}</div>
+                <div className="text-xs font-semibold">{lvl}</div>
                 <div
                   className={`text-[10px] mt-0.5 ${
-                    isSelected ? 'text-teal-300' : 'text-slate-400'
+                    isSelected ? 'text-zinc-300' : 'text-charcoal-400'
                   }`}
                 >
-                  {lvl === 1
-                    ? 'Very Low'
-                    : lvl === 2
-                    ? 'Low'
-                    : lvl === 3
-                    ? 'Moderate'
-                    : lvl === 4
-                    ? 'High'
-                    : 'Extreme'}
+                  {labels[lvl - 1]}
                 </div>
               </button>
             );
